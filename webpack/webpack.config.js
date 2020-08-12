@@ -32,16 +32,15 @@ module.exports = {
   devtool: isDebug ? 'inline-source-map' : false,
 
   entry: {
-    app: ['./src/index.ts'],
+    tool: ['./src/index.ts'],
   },
 
   output: {
     path: BUILD_DIR,
-    filename: isDebug ? '[name].js' : '[name].[chunkhash:8].js',
-    chunkFilename: isDebug
-      ? 'chunks/[name].js'
-      : 'chunks/[name].[chunkhash:8].js',
-    publicPath: '/',
+    filename: '[name].js',
+    chunkFilename: 'chunks/[name].js',
+    library: 'tool',
+    libraryTarget: 'umd',
   },
 
   resolve: {
